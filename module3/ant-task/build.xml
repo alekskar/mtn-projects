@@ -1,1 +1,36 @@
 
+<project name="MNTAntAliaksandrKaravai" default="dist" basedir=".">
+
+  <property name="src" location="src/com/test"/>
+  <property name="build" location="build/classes"/>
+  <property name="dist"  location="dist"/>
+  <property name="lib"  location="lib"/>
+   <property name="test"  location="lib"/>
+  <property name="config"  location="config"/>
+
+<target name="clean">
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+  
+  <target name="init">
+     <tstamp/>
+    <mkdir dir="${build}"/>
+    <mkdir dir="${dist}"/>
+    
+  </target>
+
+  <target name="compile" depends="init" >
+       <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+  target name="test" depends="compile" >
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+
+  <target name="dist" depends="compile" >
+    <mkdir dir="${dist}/lib"/>
+    <jar jarfile="${dist}/lib/testProject.jar" basedir="${build}"/>
+  </target>
+
+  
+</project>
