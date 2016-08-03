@@ -8,7 +8,7 @@
 
 
      <path id="application" location="${jar.dir}/${ant.project.name}.jar"/>
-<!--This  is clean target which deletes all files created during previous build -->
+<!--2. This  is clean target which deletes all files created during previous build -->
 
 <target name="clean">
     <delete dir="${build.dir}"/>
@@ -17,7 +17,7 @@
 
   </target>
 
- <!-- init target initialize some global build properties (current time and date, name of project folders)-->
+ <!-- Init target initializes some global build properties (current time and date, name of project folders)-->
 
   <target name="init" depends="clean">
  <tstamp>
