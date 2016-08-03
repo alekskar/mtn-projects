@@ -1,69 +1,46 @@
+<!-- test target executes test inside test folder-->
 
-<project name="MNTAntAliaksandrKaravai" default="dist" basedir=".">
-
-  <property name="src.dir" location="src/com/test"/>
-  <property name="build.dir" location="build/classes"/>
-  <property name="jar.dir" location="build/jar"/>
-  <property name="dist.dir"  location="dist"/>
-  <property name="lib.dir"  location="lib"/>
-   <property name="test.dir"  location="test/com/test"/>
-  <property name="config.dir"  location="config"/>
-   <path id="classpath">
-        <fileset dir="${lib.dir}" includes="*.jar"/>
-    </path>
-     <path id="application" location="${jar.dir}/${ant.project.name}.jar"/>
-
-<target name="clean">
-    <delete dir="${build.dir}"/>
-    <delete dir="${dist.dir}"/>
-    <delete dir="${jar.dir}"/>
-    
-  </target>
-  
-  <target name="init" depends="clean">
-     <tstamp/>
-    <mkdir dir="${build.dir}"/>
-    <mkdir dir="${dist.dir}"/>
-     <mkdir dir="${jar.dir}"/>
-  </target>
-
-<target name="compile" depends="init">
-     <javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="classpath" includeantruntime="false"/>
-    </target>
-  
- 
    <target name="jar" depends="compile">
-               <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${built.dir}">
+
+               <jar destfile="${jar.dir}/${buildtime}${ant.project.name}.jar" basedir="${build.dir}">
            <manifest>
                 <attribute name="Main-Class" value="${main-class}"/>
             </manifest>
         </jar>
     </target>
-    
-    
-  <target name="junit" depends="jar">
+
+   <!--jar target creates .jar file from compiled class -->
+
+  <target name="test" depends="jar">
         <junit printsummary="yes">
             <classpath>
                 <path refid="classpath"/>
                 <path refid="application"/>
             </classpath>
-            
+
             <batchtest fork="yes">
                 <fileset dir="${test.dir}" includes="*Test.java"/>
             </batchtest>
         </junit>
     </target>
 
-  <target name="dist" depends="jar" >
-   <tar destfile="${dist}/aaa.tar"
-     basedir="."
-     includes="${config.dir}/**, ${jar.dir}/**, ${lib.dir}/**"
-     
-/>
-    
-    
-   
+<!--target creates artifact containing built jar file, properties file and all runtime dependencies (Apache commons library) -->
+
+  <target name="dist" depends="test">
+   <tar destfile="${dist.dir}/${buildtime}_${ant.project.name}.tar.gz" compression="gzip">
+<tarfileset dir="${jar.dir}">
+    <include name="*.jar"/>
+</tarfileset>
+<tarfileset dir="${config.dir}">
+</tarfileset>
+<tarfileset dir="${lib.dir}">
+</tarfileset>
+
+
+        </tar>
+
   </target>
 
-  
+
 </project>
+
