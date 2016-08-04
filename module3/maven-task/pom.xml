@@ -30,7 +30,7 @@
   </dependencies>
 
   <build>
-<defaultGoal>install</defaultGoal>
+<defaultGoal>Install</defaultGoal>
 <directory>${project.basedir}/jar</directory>
 <finalName>${project.artifactId}-${project.version}-${timestamp}</finalName>
 <!--Define clean phase -->
