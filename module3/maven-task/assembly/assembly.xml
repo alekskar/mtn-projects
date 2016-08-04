@@ -7,7 +7,8 @@
    <fileSet>
     <includes>
         <include>${project.basedir}/jar/*.jar</include>
-        <include>${project.basedir}/src/assembly/assembly.xml</include>
+	<include>${project.basedir}/assembly/assembly.xml</include>
+        <include>${project.basedir}/pom.xml</include>
         <include>${project.basedir}/src/main/resources/project.properties</include>
      </includes>
     </fileSet>

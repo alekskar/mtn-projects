@@ -8,11 +8,11 @@
     <packaging>jar</packaging>
     <version>1.0</version>
     <name>maven-task</name>
-<!--<properties>
+<properties>
 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 <timestamp>${maven.build.timestamp}</timestamp>
 <maven.build.timestamp.format>dd-MM-yyyy_HH-mm</maven.build.timestamp.format>
-</properties> -->
+</properties> 
 
 <dependencies>
     <dependency>
@@ -31,7 +31,7 @@
 
   <build>
 <defaultGoal>install</defaultGoal>
-<directory>${project.basedir}/target</directory>
+<directory>${project.basedir}/jar</directory>
 <finalName>${project.artifactId}-${project.version}-${timestamp}</finalName>
 <!--Define clean phase -->
     <plugins>
@@ -73,7 +73,7 @@
     <artifactId>maven-assembly-plugin</artifactId>
       <configuration>
 
-       <directory>jar</directory>
+       <directory>${customdir}</directory>
 <descriptor>assembly/assembly.xml</descriptor>
        <finalName>${project.artifactId}-v${project.version}-${timestamp}</finalName>
 
