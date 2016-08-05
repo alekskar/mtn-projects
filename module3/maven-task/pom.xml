@@ -13,7 +13,7 @@
 <timestamp>${maven.build.timestamp}</timestamp>
 <maven.build.timestamp.format>dd-MM-yyyy_HH-mm</maven.build.timestamp.format>
 </properties> 
-
+<!-- dependencies section -->
 <dependencies>
     <dependency>
       <groupId>junit</groupId>
