@@ -27,12 +27,12 @@
        <artifactId>commons-collections</artifactId>
        <version>3.2.2</version>
       </dependency>
-      <!-- maven plugin -->
+      <!-- maven plugin 
       <dependency>
          <groupId>org.codehaus.sonar</groupId>
          <artifactId>sonar-maven-plugin</artifactId>
          <version>5.1</version>
-      </dependency>
+      </dependency>-->
   </dependencies>
 <!-- Build section -->
   <build>
@@ -73,11 +73,12 @@
           </execution>
         </executions>
       </plugin>
+      <!--Define clean scaner plugin 
  <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
         <version>3.0.2</version>
-      </plugin>
+      </plugin> -->
  <plugin>
    <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-assembly-plugin</artifactId>
