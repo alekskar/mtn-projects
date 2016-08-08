@@ -73,12 +73,12 @@
           </execution>
         </executions>
       </plugin>
-      <!--Define clean scaner plugin 
+      <!--Define clean scaner plugin -->
  <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
         <version>3.0.2</version>
-      </plugin> -->
+      </plugin> 
  <plugin>
    <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-assembly-plugin</artifactId>
